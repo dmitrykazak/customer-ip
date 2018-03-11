@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DK_CustomerIP>
+            <active>true</active>
+            <codePool>community</codePool>
+        </DK_CustomerIP>
+    </modules>
+</config>

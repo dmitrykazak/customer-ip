@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <DK_CustomerIP>
+            <version>1.0.0</version>
+        </DK_CustomerIP>
+    </modules>
+    <global>
+        <helpers>
+            <dk_customerip>DK_CustomerIP_Helper</dk_customerip>
+        </helpers>
+        <models>
+            <dk_customerip>DK_CustomerIP_Model</dk_customerip>
+        </models>
+        <events>
+            <customer_save_before>
+                <observers>
+                    <dk_customerip>
+                        <type>singleton</type>
+                        <class>dk_customerip/observer</class>
+                        <method>customerIpRegistration</method>
+                    </dk_customerip>
+                </observers>
+            </customer_save_before>
+        </events>
+    </global>
+</config>
