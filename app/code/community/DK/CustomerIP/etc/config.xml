@@ -10,8 +10,22 @@
             <dk_customerip>DK_CustomerIP_Helper</dk_customerip>
         </helpers>
         <models>
-            <dk_customerip>DK_CustomerIP_Model</dk_customerip>
+            <dk_customerip>
+                <class>DK_CustomerIP_Model</class>
+                <resourceModel>dk_customerip_resource</resourceModel>
+            </dk_customerip>
+            <dk_customerip_resource>
+                <class>DK_CustomerIP_Model_Resource</class>
+            </dk_customerip_resource>
         </models>
+        <resources>
+            <dk_customerip_setup>
+                <setup>
+                    <module>DK_CustomerIP</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </dk_customerip_setup>
+        </resources>
         <events>
             <customer_save_before>
                 <observers>
