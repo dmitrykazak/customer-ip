@@ -7,7 +7,9 @@
     </modules>
     <global>
         <helpers>
-            <dk_customerip>DK_CustomerIP_Helper</dk_customerip>
+            <dk_customerip>
+                <class>DK_CustomerIP_Helper</class>
+            </dk_customerip>
         </helpers>
         <models>
             <dk_customerip>
@@ -38,4 +40,25 @@
             </customer_save_before>
         </events>
     </global>
+    <adminhtml>
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <dk_customerip translate="title" module="dk_customerip">
+                                            <title>Customer IP</title>
+                                        </dk_customerip>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
 </config>
