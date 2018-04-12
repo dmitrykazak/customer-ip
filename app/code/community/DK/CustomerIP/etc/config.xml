@@ -6,6 +6,19 @@
         </DK_CustomerIP>
     </modules>
     <global>
+        <ip>
+            <services>
+                <ipapi>
+                    <name>IpApi</name>
+                    <model>dk_customerip/ip_service_ipApi</model>
+                </ipapi>
+            </services>
+        </ip>
+        <blocks>
+            <dk_customerip>
+                <class>DK_CustomerIP_Block</class>
+            </dk_customerip>
+        </blocks>
         <helpers>
             <dk_customerip>
                 <class>DK_CustomerIP_Helper</class>

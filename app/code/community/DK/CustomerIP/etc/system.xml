@@ -18,22 +18,76 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <enabled translate="label comment">
-                            <label>Enabled</label>
+                        <url_api translate="label comment">
+                            <label>Url API</label>
                             <comment><![CDATA[]]></comment>
-                            <frontend_type>select</frontend_type>
+                            <frontend_type>text</frontend_type>
                             <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </url_api>
+                        <mapper translate="label comment">
+                            <label>Mapper</label>
+                            <comment><![CDATA[]]></comment>
+                            <sort_order>20</sort_order>
+                            <frontend_model>dk_customerip/config_mapper</frontend_model>
+                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </mapper>
+                    </fields>
+                </settings>
+                <import translate="label">
+                    <label>Scheduled Import Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>0</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
                         </enabled>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </frequency>
+                        <service translate="label">
+                            <label>Service</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>dk_customerip/system_config_source_service</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </service>
+                        <time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </time>
                     </fields>
-                </settings>
-                <customer>
-                    <label>Customer</label>
+                </import>
+                <customer translate="label">
+                    <label>Customer Options</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>10</sort_order>
+                    <sort_order>30</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
@@ -50,10 +104,10 @@
                         </enabled>
                     </fields>
                 </customer>
-                <subscriber>
-                    <label>Subscriber</label>
+                <subscriber translate="label">
+                    <label>Subscriber Options</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>20</sort_order>
+                    <sort_order>40</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
