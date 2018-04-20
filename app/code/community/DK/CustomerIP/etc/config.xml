@@ -53,7 +53,25 @@
             </customer_save_before>
         </events>
     </global>
+    <frontend>
+        <routers>
+            <dk_customersip>
+                <use>standard</use>
+                <args>
+                    <module>DK_CustomerIP</module>
+                    <frontName>customerip</frontName>
+                </args>
+            </dk_customersip>
+        </routers>
+    </frontend>
     <adminhtml>
+        <layout>
+            <updates>
+                <dk_customerip>
+                    <file>dk_customerip.xml</file>
+                </dk_customerip>
+            </updates>
+        </layout>
         <acl>
             <resources>
                 <admin>
@@ -74,4 +92,22 @@
             </resources>
         </acl>
     </adminhtml>
+    <default>
+        <dk_customerip>
+            <ipapi>
+                <timeout>60</timeout>
+            </ipapi>
+        </dk_customerip>
+    </default>
+    <crontab>
+        <jobs>
+            <ip_customer_update>
+                <run>
+                    <model>
+                        dk_customerip/process_observer::update
+                    </model>
+                </run>
+            </ip_customer_update>
+        </jobs>
+    </crontab>
 </config>
