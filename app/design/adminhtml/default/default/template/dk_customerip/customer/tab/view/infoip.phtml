@@ -1,0 +1,42 @@
+<style>
+    #map {
+        height: 400px;
+        width: 100%;
+    }
+</style>
+
+<div class="entry-edit">
+    <div class="entry-edit-head">
+        <h4 class="icon-head head-customer-view-remoteip">
+            <?php echo $this->__('Remote IP during registration') ?>
+        </h4>
+    </div>
+    <fieldset>
+        <table cellspacing="2" class="box-left">
+            <td>
+                <strong><?php echo $this->__('Last Logged In:') ?></strong>
+            </td>
+            <td>
+                <?php echo $this->getRegistrationIp(); ?>
+            </td>
+        </table>
+
+        <div id="map"></div>
+        <script>
+            function initMap() {
+                var uluru = {lat: 20.363, lng: 131.100};
+                var map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 4,
+                    center: uluru
+                });
+                var marker = new google.maps.Marker({
+                    position: uluru,
+                    map: map
+                });
+            }
+        </script>
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVS5zChqQx0iXoVzgegYtx85JeVnxD6UU&callback=initMap">
+        </script>
+    </fieldset>
+</div>

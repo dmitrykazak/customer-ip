@@ -1,6 +1,8 @@
 <?php
 
 class DK_CustomerIP_Model_Ip_Service_IpApi
+    extends DK_CustomerIP_Model_Ip_Service_Object
+    implements DK_CustomerIP_Model_Ip_Service_Interface
 {
     protected $url = 'https://ipapi.co/{{IP_ADDRESS}}/json/';
 
@@ -21,9 +23,9 @@ class DK_CustomerIP_Model_Ip_Service_IpApi
         $this->helper = Mage::helper('dk_customerip');
     }
 
-    protected function update($ip, $retry = 0)
+    public function update()
     {
-        $url = str_replace('{{IP_ADDRESS}}', $ip, $this->url);
+        $url = str_replace('{{IP_ADDRESS}}', $this->getIp(), $this->url);
 
         try {
             $response = $this->httpClient
@@ -38,11 +40,7 @@ class DK_CustomerIP_Model_Ip_Service_IpApi
 
             return [];
         } catch (Exception $e) {
-            if ($retry === 0) {
-                $this->update($ip, 1);
-            } else {
-                array_push($this->message, $this->helper->__('Cannot get IP address %s.', $url));
-            }
+            array_push($this->message, $this->helper->__('Cannot get IP address %s.', $url));
         }
     }
 }

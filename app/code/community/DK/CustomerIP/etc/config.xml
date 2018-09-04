@@ -2,7 +2,7 @@
 <config>
     <modules>
         <DK_CustomerIP>
-            <version>1.0.0</version>
+            <version>1.1.0</version>
         </DK_CustomerIP>
     </modules>
     <global>
@@ -31,6 +31,11 @@
             </dk_customerip>
             <dk_customerip_resource>
                 <class>DK_CustomerIP_Model_Resource</class>
+                <entities>
+                    <customer_info_ip>
+                        <table>dk_customerip_info</table>
+                    </customer_info_ip>
+                </entities>
             </dk_customerip_resource>
         </models>
         <resources>
@@ -42,15 +47,15 @@
             </dk_customerip_setup>
         </resources>
         <events>
-            <customer_save_before>
+            <newsletter_subscriber_save_before>
                 <observers>
                     <dk_customerip>
                         <type>singleton</type>
                         <class>dk_customerip/observer</class>
-                        <method>customerIpRegistration</method>
+                        <method>newsletterSubscriberSaveBefore</method>
                     </dk_customerip>
                 </observers>
-            </customer_save_before>
+            </newsletter_subscriber_save_before>
         </events>
     </global>
     <frontend>
@@ -64,6 +69,17 @@
             </dk_customersip>
         </routers>
     </frontend>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <DK_CustomerIP after="Mage_Adminhtml">DK_CustomerIP_Adminhtml</DK_CustomerIP>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <adminhtml>
         <layout>
             <updates>

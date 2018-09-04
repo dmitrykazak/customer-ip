@@ -14,7 +14,7 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
     }
 
     /**
-     * Hide block if the customer hasn't been saved yet
+     * Hide block if the customer has not been saved yet
      *
      * @return string
      */

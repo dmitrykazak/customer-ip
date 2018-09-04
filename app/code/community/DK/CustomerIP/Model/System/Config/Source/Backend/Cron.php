@@ -12,6 +12,7 @@ class DK_CustomerIP_Model_System_Config_Source_Backend_Cron extends Mage_Core_Mo
                 ->setValue(Mage::helper('dk_customerip/cron')->getExprTime())
                 ->setPath(self::CRON_PATH)
                 ->save();
+
         } catch (Exception $e) {
             throw new Exception(Mage::helper('cron')->__('Unable to save the cron expression.'));
         }

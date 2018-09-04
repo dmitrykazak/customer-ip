@@ -2,7 +2,6 @@
 
 class DK_CustomerIP_Helper_Cron extends Mage_Core_Helper_Abstract
 {
-
     public function getImportEnabled()
     {
         return Mage::getStoreConfig('dk_customerip/import/enabled');
