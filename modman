@@ -3,3 +3,6 @@
 app/code/community/DK/CustomerIP            app/code/community/DK/CustomerIP
 # app/etc
 app/etc/modules/DK_CustomerIP.xml            app/etc/modules/DK_CustomerIP.xml
+# app/design
+app/design/adminhtml/default/default/template/dk_customerip/customer/tab/view/infoip.phtml            app/design/adminhtml/default/default/template/dk_customerip/customer/tab/view/infoip.phtml
+app/design/adminhtml/default/default/layout/dk_customerip.xml            app/design/adminhtml/default/default/layout/dk_customerip.xml

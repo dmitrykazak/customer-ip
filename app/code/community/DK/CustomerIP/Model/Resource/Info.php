@@ -7,6 +7,6 @@ class DK_CustomerIP_Model_Resource_Info extends Mage_Core_Model_Resource_Db_Abst
      */
     protected function _construct()
     {
-        $this->_init('dk_customerip/customer_info_ip', 'customer_id');
+        $this->_init('dk_customerip/customer_info_ip', 'info_id');
     }
 }

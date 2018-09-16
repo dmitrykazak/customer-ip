@@ -22,6 +22,9 @@ class DK_CustomerIP_Model_Entity_Attribute_Backend_Ip
             $object->setData(
                 $attrCode,
                 $this->helper->getRemoteAddress()
+            )->setData(
+                'status_update_ip',
+                DK_CustomerIP_Model_Info::PROCESSING_STATUS
             );
         }
 

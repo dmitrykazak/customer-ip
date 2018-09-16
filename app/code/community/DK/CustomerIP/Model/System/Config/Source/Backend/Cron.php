@@ -4,6 +4,9 @@ class DK_CustomerIP_Model_System_Config_Source_Backend_Cron extends Mage_Core_Mo
 {
     const CRON_PATH = 'crontab/jobs/ip_customer_update/schedule/cron_expr';
 
+    /**
+     * @inheritdoc
+     */
     protected function _afterSave()
     {
         try {

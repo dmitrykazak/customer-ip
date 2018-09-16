@@ -1,29 +1,20 @@
 <?php
 
+/**
+ * Class DK_CustomerIP_Model_Ip_Service_IpApi
+ */
 class DK_CustomerIP_Model_Ip_Service_IpApi
-    extends DK_CustomerIP_Model_Ip_Service_Object
-    implements DK_CustomerIP_Model_Ip_Service_Interface
+    extends DK_CustomerIP_Model_Ip_Service_Abstract
 {
+    /**
+     * @var string $url
+     */
     protected $url = 'https://ipapi.co/{{IP_ADDRESS}}/json/';
 
-    protected $message = [];
     /**
-     * @var Varien_Http_Client $httpClient
+     * @return array|mixed
      */
-    protected $httpClient;
-
-    /**
-     * @var DK_CustomerIP_Helper_Data $helper
-     */
-    protected $helper;
-
-    public function __construct()
-    {
-        $this->httpClient = new Varien_Http_Client();
-        $this->helper = Mage::helper('dk_customerip');
-    }
-
-    public function update()
+    public function call()
     {
         $url = str_replace('{{IP_ADDRESS}}', $this->getIp(), $this->url);
 
@@ -35,7 +26,7 @@ class DK_CustomerIP_Model_Ip_Service_IpApi
                 ->getBody();
 
             if ($response) {
-                return Zend_Json_Decoder::decode($response);
+                return $response;
             }
 
             return [];

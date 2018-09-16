@@ -13,7 +13,9 @@ class DK_CustomerIP_Model_Observer
         $subscriber = $observer->getEvent()->getSubscriber();
 
         if ($subscriber && $subscriber->isObjectNew()) {
-            $subscriber->setRegistrationIp($helper->getRemoteAddress());
+            $subscriber
+                ->setRegistrationIp($helper->getRemoteAddress())
+                ->setStatusUpdateIp(DK_CustomerIP_Model_Info::PROCESSING_STATUS);
         }
     }
 }

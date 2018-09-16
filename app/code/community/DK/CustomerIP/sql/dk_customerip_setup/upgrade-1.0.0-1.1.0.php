@@ -8,8 +8,23 @@ $installer->startSetup();
 $connection = $installer->getConnection();
 $tableNameIP = $installer->getTable('dk_customerip/customer_info_ip');
 
+if ($connection->isTableExists($tableNameIP)) {
+    $connection->dropTable($tableNameIP);
+}
+
 $infoTable = $connection
     ->newTable($tableNameIP)
+    ->addColumn(
+        'info_id',
+        Varien_Db_Ddl_Table::TYPE_INTEGER,
+        null,
+        [
+            'identity' => true,
+            'unsigned' => true,
+            'nullable' => false,
+            'primary' => true,
+        ]
+    )
     ->addColumn(
         'customer_id',
         Varien_Db_Ddl_Table::TYPE_INTEGER,
@@ -19,7 +34,7 @@ $infoTable = $connection
         ],
         'Customer ID for IP'
     )->addColumn(
-        'data',
+        'info',
         Varien_Db_Ddl_Table::TYPE_TEXT,
         null,
         [
