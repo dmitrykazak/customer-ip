@@ -2,21 +2,13 @@
 
 class DK_CustomerIP_Helper_Data extends Mage_Core_Helper_Abstract
 {
-    public function getMapper()
-    {
-        $mapper = Mage::getStoreConfig('dk_customerip/settings/mapper');
-        if ($mapper) {
-
-        }
-    }
-
     public function getRemoteAddress()
     {
         return Mage::helper('core/http')->getRemoteAddr();
     }
 
     /**
-     * Get Current service model for to get IP info.
+     * Get current service model for to get IP info.
      *
      * @return Mage_Core_Model_Abstract|null
      */
@@ -26,11 +18,12 @@ class DK_CustomerIP_Helper_Data extends Mage_Core_Helper_Abstract
 
         if ($service) {
             try {
-                $model = Mage::getModel(Mage::getConfig()->getNode('global/ip/services/' . $service . '/model')->asArray());
+                $modelName = Mage::getConfig()->getNode('global/ip/services/' . $service . '/model');
+                $model = Mage::getModel(Mage::getConfig()->getNode($modelName)->asArray());
 
                 return $model;
             } catch (Exception $e) {
-                Mage::log('The model was not found!');
+                Mage::log(sprintf('The model (%s) was not found!', $modelName));
             }
         }
 

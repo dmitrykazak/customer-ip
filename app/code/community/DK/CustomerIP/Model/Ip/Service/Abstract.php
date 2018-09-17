@@ -13,9 +13,9 @@ abstract class DK_CustomerIP_Model_Ip_Service_Abstract extends Varien_Object
     protected $httpClient;
 
     /**
-     * @var array $message
+     * @var array $error
      */
-    protected $message = [];
+    protected $error = [];
 
     /**
      * @var DK_CustomerIP_Helper_Data $helper
@@ -29,24 +29,4 @@ abstract class DK_CustomerIP_Model_Ip_Service_Abstract extends Varien_Object
     }
 
     abstract public function call();
-
-    /**
-     * @return string
-     */
-    public function getIp()
-    {
-        return $this->ip;
-    }
-
-    /**
-     * @param string $ip
-     *
-     * @return $this
-     */
-    public function setIp($ip)
-    {
-        $this->ip = $ip;
-
-        return $this;
-    }
 }

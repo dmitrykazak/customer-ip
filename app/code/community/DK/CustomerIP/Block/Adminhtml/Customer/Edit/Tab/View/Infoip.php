@@ -1,8 +1,14 @@
 <?php
 
+/**
+ * Class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
+ */
 class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
     extends Mage_Adminhtml_Block_Template
 {
+    /**
+     * @return Mage_Customer_Model_Customer
+     */
     public function getCustomer()
     {
         return Mage::registry('current_customer');

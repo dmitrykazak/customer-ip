@@ -31,7 +31,7 @@ class DK_CustomerIP_Model_Ip_Service_IpApi
 
             return [];
         } catch (Exception $e) {
-            array_push($this->message, $this->helper->__('Cannot get IP address %s.', $url));
+            array_push($this->error, $this->helper->__('Cannot get IP address %s.', $url));
         }
     }
 }

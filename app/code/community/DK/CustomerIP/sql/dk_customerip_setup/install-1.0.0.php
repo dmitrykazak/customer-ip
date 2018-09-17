@@ -16,7 +16,7 @@ $fields = [
         'type' => 'int',
         'label' => 'Customer\'s status update IP',
         'visible' => false,
-        'default' => DK_CustomerIP_Model_Info::DISABLED_STATUS_IP,
+        'default' => DK_CustomerIP_Model_Info::DISABLED_STATUS,
         'required' => false,
     ],
 ];
