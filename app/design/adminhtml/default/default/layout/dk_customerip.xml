@@ -5,6 +5,8 @@
             <block type="dk_customerip/adminhtml_customer_edit_tab_view_infoip"
                    name="customerip" template="dk_customerip/customer/tab/view/infoip.phtml"
                    before="sales">
+                <block type="dk_customerip/adminhtml_customer_edit_tab_view_gMap"
+                       name="customer-gmap" template="dk_customerip/customer/tab/view/gmap.phtml" />
             </block>
         </reference>
     </adminhtml_customer_edit>

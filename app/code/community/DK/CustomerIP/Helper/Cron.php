@@ -30,6 +30,9 @@ class DK_CustomerIP_Helper_Cron extends Mage_Core_Helper_Abstract
         return [];
     }
 
+    /**
+     * @return string
+     */
     public function getExprTime()
     {
         $frequencyWeekly = Mage_Adminhtml_Model_System_Config_Source_Cron_Frequency::CRON_WEEKLY;

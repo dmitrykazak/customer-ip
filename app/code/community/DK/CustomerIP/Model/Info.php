@@ -27,4 +27,19 @@ class DK_CustomerIP_Model_Info extends Mage_Core_Model_Abstract
                 'status_update_ip', DK_CustomerIP_Model_Info::PROCESSING_STATUS
             );
     }
+
+    /**
+     * @param Mage_Customer_Model_Customer $customer
+     * @param string $info
+     *
+     * @return $this
+     */
+    public function createCustomerInfo(Mage_Customer_Model_Customer $customer, $info)
+    {
+        $this->setCustomerId($customer->getId())
+            ->setCreatedTime(Varien_Date::now())
+            ->setInfo($info);
+
+        return $this;
+    }
 }

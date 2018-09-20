@@ -21,9 +21,7 @@ class DK_CustomerIP_Model_Process
 
             if (!$server->getError() && $info) {
                 Mage::getModel('dk_customerip/info')
-                    ->setCustomerId($customer->getId())
-                    ->setCreatedTime(Varien_Date::now())
-                    ->setInfo($info)
+                    ->createCustomerInfo($customer, $info)
                     ->save();
 
                 $customer

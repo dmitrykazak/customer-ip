@@ -1,9 +1,9 @@
-<style>
-    #map {
-        height: 400px;
-        width: 100%;
-    }
-</style>
+<?php
+    print_r($this->getInfoData());
+
+    die();
+
+?>
 
 <div class="entry-edit">
     <div class="entry-edit-head">
@@ -21,22 +21,6 @@
             </td>
         </table>
 
-        <div id="map"></div>
-        <script>
-            function initMap() {
-                var uluru = {lat: 20.363, lng: 131.100};
-                var map = new google.maps.Map(document.getElementById('map'), {
-                    zoom: 4,
-                    center: uluru
-                });
-                var marker = new google.maps.Marker({
-                    position: uluru,
-                    map: map
-                });
-            }
-        </script>
-        <script async defer
-                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVS5zChqQx0iXoVzgegYtx85JeVnxD6UU&callback=initMap">
-        </script>
+        <?php echo $this->getChildHtml('customer-gmap'); ?>
     </fieldset>
 </div>

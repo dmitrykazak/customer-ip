@@ -1,10 +1,24 @@
 <?php
 
+/**
+ * Class DK_CustomerIP_Helper_Data
+ */
 class DK_CustomerIP_Helper_Data extends Mage_Core_Helper_Abstract
 {
+    /**
+     * @return string
+     */
     public function getRemoteAddress()
     {
         return Mage::helper('core/http')->getRemoteAddr();
+    }
+
+    /**
+     * @return string
+     */
+    public function getGoogleMapKey()
+    {
+        return Mage::getStoreConfig('dk_customerip/settings/google_api_key');
     }
 
     /**
@@ -18,8 +32,9 @@ class DK_CustomerIP_Helper_Data extends Mage_Core_Helper_Abstract
 
         if ($service) {
             try {
-                $modelName = Mage::getConfig()->getNode('global/ip/services/' . $service . '/model');
-                $model = Mage::getModel(Mage::getConfig()->getNode($modelName)->asArray());
+                $modelName = Mage::getConfig()->getNode('global/ip/services/' . $service . '/model')->asArray();
+
+                $model = Mage::getModel($modelName);
 
                 return $model;
             } catch (Exception $e) {
@@ -28,5 +43,10 @@ class DK_CustomerIP_Helper_Data extends Mage_Core_Helper_Abstract
         }
 
         return null;
+    }
+
+    public function normalize(array $data)
+    {
+
     }
 }
