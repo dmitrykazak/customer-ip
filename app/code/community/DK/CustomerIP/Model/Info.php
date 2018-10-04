@@ -29,16 +29,17 @@ class DK_CustomerIP_Model_Info extends Mage_Core_Model_Abstract
     }
 
     /**
-     * @param Mage_Customer_Model_Customer $customer
-     * @param string $info
+     * @param $customer
      *
      * @return $this
      */
-    public function createCustomerInfo(Mage_Customer_Model_Customer $customer, $info)
+    public function setCustomer($customer)
     {
-        $this->setCustomerId($customer->getId())
-            ->setCreatedTime(Varien_Date::now())
-            ->setInfo($info);
+        if ($customer instanceof Mage_Customer_Model_Customer) {
+            $this->setCustomerId($customer->getId());
+        }
+
+        $this->setCustomerId($customer);
 
         return $this;
     }
