@@ -6,12 +6,14 @@
     </div>
     <fieldset>
         <table cellspacing="2" class="box-left">
-            <td>
-                <strong><?php echo $this->__('Last Logged In:') ?></strong>
-            </td>
-            <td>
-                <?php echo $this->getRegistrationIp(); ?>
-            </td>
+            <?php foreach ($this->getInfoData() as $title => $info): ?>
+                <td>
+                    <strong><?= $this->__($title) ?></strong>
+                </td>
+                <td>
+                    <?= $this->__($info) ?>
+                </td>
+            <?php endforeach; ?>
         </table>
 
         <?php echo $this->getChildHtml('customer-gmap'); ?>

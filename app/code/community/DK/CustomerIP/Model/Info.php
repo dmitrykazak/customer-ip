@@ -37,9 +37,9 @@ class DK_CustomerIP_Model_Info extends Mage_Core_Model_Abstract
     {
         if ($customer instanceof Mage_Customer_Model_Customer) {
             $this->setCustomerId($customer->getId());
+        } else {
+            $this->setCustomerId($customer);
         }
-
-        $this->setCustomerId($customer);
 
         return $this;
     }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MagicentoSettings">
+    <option name="pathToMage" value="$PROJECT_DIR$/../dockerized-magento/web/app/Mage.php" />
+    <option name="pathToPhp" value="" />
+    <option name="urlToMagento" value="" />
+    <option name="packages" value="" />
+    <option name="themes" value="" />
+    <option name="basicAuthUsername" value="" />
+    <option name="basicAuthPassword" value="" />
+    <option name="pathsToMagentoSerialized" value="$PROJECT_DIR$/../dockerized-magento/web,/var/www/html/customer-ip" />
+    <option name="modmanProjectChecked" value="true" />
+    <option name="lineMarkerLayoutHandle" value="false" />
+    <option name="customSignatures" value="" />
+    <option name="d" value="XSndC3Fq81vOC3qrHofh+KggzeUN+mCeLdJDE9CGV3O58h43G0QrvBJDP2OSzBx28hSv+jZnQG8x&#13;&#10;dCi3uvoeNKxbBufaF4cWUV7sa/NCebrLZJxHE4agH6ikX2d8LC4v/EM4VfK4hlQC/taUAbTGz2Lt&#13;&#10;G/qlSl0PUzUYS4ipbi4=&#13;&#10;" />
+  </component>
+</project>

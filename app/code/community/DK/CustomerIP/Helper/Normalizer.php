@@ -13,7 +13,7 @@ class DK_CustomerIP_Helper_Normalizer extends Mage_Core_Helper_Abstract
     /**
      * @param array $data
      *
-     * @return array
+     * @return string
      */
     public function normalize(array $data)
     {
@@ -25,6 +25,6 @@ class DK_CustomerIP_Helper_Normalizer extends Mage_Core_Helper_Abstract
             }
         }
 
-        return $normalizerData;
+        return Zend_Json_Encoder::encode($data);
     }
 }
