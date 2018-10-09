@@ -36,7 +36,7 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
             ->getFirstItem();
 
         if ($info) {
-            return $info->getNormalizedInfo();
+            return Zend_Json_Decoder::decode($info->getNormalizedInfo());
         }
 
         return [];

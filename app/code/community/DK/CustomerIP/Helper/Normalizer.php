@@ -25,6 +25,6 @@ class DK_CustomerIP_Helper_Normalizer extends Mage_Core_Helper_Abstract
             }
         }
 
-        return Zend_Json_Encoder::encode($data);
+        return Zend_Json_Encoder::encode($normalizerData);
     }
 }

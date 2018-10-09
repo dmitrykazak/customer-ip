@@ -7,12 +7,14 @@
     <fieldset>
         <table cellspacing="2" class="box-left">
             <?php foreach ($this->getInfoData() as $title => $info): ?>
-                <td>
-                    <strong><?= $this->__($title) ?></strong>
-                </td>
-                <td>
-                    <?= $this->__($info) ?>
-                </td>
+                <tr>
+                    <td>
+                        <strong><?= $this->__($title) ?>:</strong>
+                    </td>
+                    <td>
+                        <?= $this->__($info) ?>
+                    </td>
+                </tr>
             <?php endforeach; ?>
         </table>
 
