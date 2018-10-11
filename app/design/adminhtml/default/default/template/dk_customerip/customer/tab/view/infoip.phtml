@@ -1,23 +1,43 @@
+<style>
+    .column {
+        float: left;
+        width: 50%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+</style>
+
 <div class="entry-edit">
     <div class="entry-edit-head">
         <h4 class="icon-head head-customer-view-remoteip">
             <?php echo $this->__('Remote IP during registration') ?>
         </h4>
     </div>
-    <fieldset>
-        <table cellspacing="2" class="box-left">
-            <?php foreach ($this->getInfoData() as $title => $info): ?>
-                <tr>
-                    <td>
-                        <strong><?= $this->__($title) ?>:</strong>
-                    </td>
-                    <td>
-                        <?= $this->__($info) ?>
-                    </td>
-                </tr>
-            <?php endforeach; ?>
-        </table>
+    <div class="row">
+        <div class="column">
+            <fieldset>
+                <table cellspacing="2" class="box-left">
+                    <?php foreach ($this->getInfoData() as $title => $info): ?>
+                        <tr>
+                            <td>
+                                <strong><?= $this->__($title) ?>:</strong>
+                            </td>
+                            <td>
+                                <?= $this->__($info) ?>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                </table>
+            </fieldset>
+        </div>
 
-        <?php echo $this->getChildHtml('customer-gmap'); ?>
-    </fieldset>
+        <div class="column">
+            <?=$this->getChildHtml('customer-gmap') ?>
+        </div>
+    </div>
 </div>
