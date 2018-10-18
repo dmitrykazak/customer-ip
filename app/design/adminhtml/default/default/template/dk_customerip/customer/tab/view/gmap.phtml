@@ -7,9 +7,13 @@
 
 <div id="map"></div>
 
+<?php
+    $coordinates = $this->getCoordinates();
+?>
+
 <script type="text/javascript">
     function initMap() {
-        var uluru = {lat: 20.363, lng: 131.100};
+        var uluru = {lat: <?=$coordinates['latitude']?>, lng: <?=$coordinates['longitude']?>};
         var map = new google.maps.Map(document.getElementById('map'), {
             zoom: 4,
             center: uluru
