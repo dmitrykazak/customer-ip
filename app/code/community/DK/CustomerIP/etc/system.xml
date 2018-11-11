@@ -18,16 +18,6 @@
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
-                        <mapper translate="label comment">
-                            <label>Mapper</label>
-                            <comment><![CDATA[]]></comment>
-                            <sort_order>20</sort_order>
-                            <frontend_model>dk_customerip/config_mapper</frontend_model>
-                            <backend_model>adminhtml/system_config_backend_serialized_array</backend_model>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
-                        </mapper>
                         <google_api_key translate="label comment">
                             <label>Google API Key</label>
                             <frontend_type>text</frontend_type>

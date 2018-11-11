@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <layout>
     <adminhtml_customer_edit>
+        <reference name="head">
+            <action method="addJs">
+                <script>dk_customerip/main.js</script>
+            </action>
+        </reference>
         <reference name="customer_edit_tab_view">
             <block type="dk_customerip/adminhtml_customer_edit_tab_view_infoip"
                    name="customerip" template="dk_customerip/customer/tab/view/infoip.phtml"
@@ -10,5 +15,9 @@
             </block>
         </reference>
     </adminhtml_customer_edit>
+    <adminhtml_customerip_get>
+        <block type="dk_customerip/adminhtml_info" name="customerip.info"
+               template="dk_customerip/customer/tab/view/ajax.phtml"></block>
+    </adminhtml_customerip_get>
 </layout>
 

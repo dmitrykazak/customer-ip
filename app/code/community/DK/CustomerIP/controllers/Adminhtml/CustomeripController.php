@@ -2,21 +2,57 @@
 
 class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Controller_Action
 {
-    public function indexAction()
+    public function getAction()
     {
-       try {
-           $model = Mage::helper('dk_customerip')->getCurrentServiceModel();
+        if ($this->getRequest()->isAjax()) {
+            if ($customerId = $this->getRequest()->getParam('customer')) {
+                $customer = Mage::getModel('customer/customer')->load($customerId);
 
-           $model->setCustomerId('2')
-               ->setIp('127.0.0.1');
+                $server = Mage::helper('dk_customerip')->getCurrentServiceModel();
 
-           echo '<pre>';
-           print_r($model->getData());
-           die();
+                $info = $server
+                    ->setIp($customer->getRegistrationIp())
+                    ->call();
 
+                if (!$server->getError() && $info) {
+                    $infoModel = Mage::getModel('dk_customerip/info')
+                        ->getCollection()
+                        ->addFieldToFilter('customer_id', $customer->getId())
+                        ->setPageSize(1)
+                        ->setCurPage(1)
+                        ->getFirstItem();
 
-        } catch (Exception $e) {
-           die();
+                    $infoModel->setInfo($info)
+                        ->setNormalizedInfo(
+                            Mage::helper('dk_customerip/normalizer')->normalize(
+                                Zend_Json_Decoder::decode($info)
+                            )
+                        )
+                        ->setCreatedTime(Varien_Date::now())
+                        ->save();
+
+                    $customer
+                        ->setStatusUpdateIp(DK_CustomerIP_Model_Info::UPDATED_STATUS)
+                        ->save();
+                }
+
+                $response = [];
+
+                $response['gmap'] = $this->getLayout()
+                    ->createBlock('dk_customerip/adminhtml_customer_edit_tab_view_gMap')
+                    ->setTemplate('dk_customerip/customer/tab/view/gmap.phtml')
+                    ->setCustomer($customer)
+                    ->toHtml();
+
+                $this->getResponse()
+                    ->clearHeaders()
+                    ->setHeader('Content-type','application/json', true);
+                $this->getResponse()->setBody(
+                    Zend_Json_Encoder::encode($response)
+                );
+
+                return;
+            }
         }
 
     }

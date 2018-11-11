@@ -10,12 +10,21 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
 
     private $collection = null;
 
+    private $customer;
+
     /**
      * @return Mage_Customer_Model_Customer
      */
     public function getCustomer()
     {
-        return Mage::registry('current_customer');
+        return $this->customer ?: Mage::registry('current_customer');
+    }
+
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
     }
 
     /**
@@ -62,7 +71,7 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
             'latitude' => 0,
             'longitude' => 0,
         ];
-        if ($collection) {
+        if ($collection && $collection->getInfo()) {
             $info = Zend_Json_Decoder::decode($collection->getInfo());
 
             $coordinates = [
@@ -82,11 +91,19 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
     public function getInfoData()
     {
         $info = $this->getCollection();
-        if ($info) {
+        if ($info && $info->getNormalizedInfo()) {
             return Zend_Json_Decoder::decode($info->getNormalizedInfo());
         }
 
         return [];
+    }
+
+    /**
+     * @return string
+     */
+    public function getAjaxUrl()
+    {
+        return $this->helper('adminhtml')->getUrl('adminhtml/customerip/get');
     }
 
     /**
