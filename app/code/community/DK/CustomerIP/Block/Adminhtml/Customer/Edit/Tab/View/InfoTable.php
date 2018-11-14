@@ -15,6 +15,13 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_InfoTable
         return $this->customer ?: Mage::registry('current_customer');
     }
 
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
+
+        return $this;
+    }
+
     public function getCollection()
     {
         if ($this->collection) {
