@@ -10,14 +10,14 @@
             <block type="dk_customerip/adminhtml_customer_edit_tab_view_infoip"
                    name="customerip" template="dk_customerip/customer/tab/view/infoip.phtml"
                    before="sales">
+                <block type="dk_customerip/adminhtml_customer_edit_tab_view_infoTable"
+                       name="customerip-info-table"
+                       template="dk_customerip/customer/tab/view/info_table.phtml">
+                </block>
                 <block type="dk_customerip/adminhtml_customer_edit_tab_view_gMap"
-                       name="customer-gmap" template="dk_customerip/customer/tab/view/gmap.phtml" />
+                       name="customer-gmap" template="dk_customerip/customer/tab/view/gmap.phtml"/>
             </block>
         </reference>
     </adminhtml_customer_edit>
-    <adminhtml_customerip_get>
-        <block type="dk_customerip/adminhtml_info" name="customerip.info"
-               template="dk_customerip/customer/tab/view/ajax.phtml"></block>
-    </adminhtml_customerip_get>
 </layout>
 

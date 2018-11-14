@@ -1,11 +1,11 @@
 <style>
-    #map {
+    #map-customer-ip {
         height: 400px;
         width: 100%;
     }
 </style>
 
-<div id="map"></div>
+<div id="map-customer-ip"></div>
 
 <?php
     $coordinates = $this->getCoordinates();
@@ -13,11 +13,16 @@
 
 <script type="text/javascript">
     function initMap() {
-        var uluru = {lat: <?=$coordinates['latitude']?>, lng: <?=$coordinates['longitude']?>};
-        var map = new google.maps.Map(document.getElementById('map'), {
+        var uluru = {
+            lat: <?=$coordinates['latitude']?>,
+            lng: <?=$coordinates['longitude']?>
+        };
+
+        var map = new google.maps.Map(document.getElementById('map-customer-ip'), {
             zoom: 4,
             center: uluru
         });
+
         var marker = new google.maps.Marker({
             position: uluru,
             map: map

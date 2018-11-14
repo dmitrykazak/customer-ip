@@ -31,18 +31,9 @@
                     </button>
                 </div>
 
-                <table cellspacing="2" class="box-left">
-                    <?php foreach ($this->getInfoData() as $title => $info): ?>
-                        <tr>
-                            <td>
-                                <strong><?= $this->__($title) ?>:</strong>
-                            </td>
-                            <td>
-                                <?= $this->__($info) ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
-                </table>
+                <div>
+                    <?php echo $this->getChildHtml('customerip-info-table'); ?>
+                </div>
             </fieldset>
         </div>
 

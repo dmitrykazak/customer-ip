@@ -19,7 +19,7 @@ CustomerIP.prototype = {
             parameters: this.paramsRequest,
             onSuccess: function(response) {
               const rp = response.responseText.evalJSON();
-              let map = $$('div .map');
+              let map = $('map');
               map.update('test');
             },
             onFailure: function() {

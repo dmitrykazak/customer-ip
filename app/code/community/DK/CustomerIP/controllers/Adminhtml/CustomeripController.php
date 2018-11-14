@@ -38,10 +38,8 @@ class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Contro
 
                 $response = [];
 
-                $response['gmap'] = $this->getLayout()
-                    ->createBlock('dk_customerip/adminhtml_customer_edit_tab_view_gMap')
-                    ->setTemplate('dk_customerip/customer/tab/view/gmap.phtml')
-                    ->setCustomer($customer)
+                $response['table'] = $this->getLayout()
+                    ->createBlock('dk_customerip/adminhtml_customer_edit_tab_view_infoTable')
                     ->toHtml();
 
                 $this->getResponse()
