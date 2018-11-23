@@ -4,29 +4,33 @@ CustomerIP.prototype = {
     /**
      * Initialize object
      */
-    initialize: function(ajaxUrl, entityId, buttonId) {
+    initialize(ajaxUrl, entityId, buttonId) {
         this.url = ajaxUrl;
         this.entityId = entityId;
-        this.paramsRequest = {};
         this.button = $(buttonId);
+        this.tableInfo = $('table-info-customerip');
+        this.paramsRequest = {};
     },
 
-    update: function() {
-        this.paramsRequest['customer'] = this.entityId;
+    update() {
+      this.paramsRequest['customer'] = this.entityId;
 
-        new Ajax.Request(this.url, {
-            method:'POST',
-            parameters: this.paramsRequest,
-            onSuccess: function(response) {
-              const rp = response.responseText.evalJSON();
-              const tableInfo = $('table-info-customerip');
-              console.log(rp);
-              tableInfo.update(rp.table);
-            },
-            onFailure: function() {
+      new Ajax.Request(this.url, {
+        method:'POST',
+        parameters: this.paramsRequest,
 
-            }
-        });
+        onSuccess(response) {
+          const blocks = response.responseText.evalJSON();
+
+          if (blocks !== '') {
+            this.tableInfo.update(blocks.table);
+          }
+      },
+
+      onFailure() {
+
+      }
+    });
     },
 
     disableButton: function() {

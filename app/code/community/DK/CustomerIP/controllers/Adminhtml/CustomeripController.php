@@ -22,6 +22,11 @@ class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Contro
                         ->setCurPage(1)
                         ->getFirstItem();
 
+                    if (!$infoModel->getInfoId()) {
+                        $infoModel = Mage::getModel('dk_customerip/info')
+                            ->setCustomer($customer);
+                    }
+
                     $infoModel->setInfo($info)
                         ->setNormalizedInfo(
                             Mage::helper('dk_customerip/normalizer')->normalize(
