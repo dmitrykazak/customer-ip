@@ -6,13 +6,13 @@
 class DK_CustomerIP_Model_Process
 {
     /**
-     * @var DK_CustomerIP_Helper_Normalizer $helper
+     * @var DK_CustomerIP_Helper_Normalizer $helperNormalizer
      */
-    private $helper;
+    private $helperNormalizer;
 
     public function __construct()
     {
-        $this->helper = Mage::helper('dk_customerip/normalizer');
+        $this->helperNormalizer = Mage::helper('dk_customerip/normalizer');
     }
 
     /**
@@ -34,7 +34,7 @@ class DK_CustomerIP_Model_Process
                     ->setCustomer($customer)
                     ->setInfo($info)
                     ->setNormalizedInfo(
-                        $this->helper->normalize(
+                        $this->helperNormalizer->normalize(
                             Zend_Json_Decoder::decode($info)
                         )
                     )

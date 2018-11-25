@@ -13,19 +13,19 @@
 
 <script type="text/javascript">
     function initMap() {
-        var uluru = {
-            lat: <?=$coordinates['latitude']?>,
-            lng: <?=$coordinates['longitude']?>
+        const uluru = {
+          lat: <?=$coordinates['latitude']?>,
+          lng: <?=$coordinates['longitude']?>
         };
 
-        var map = new google.maps.Map(document.getElementById('map-customer-ip'), {
-            zoom: 4,
-            center: uluru
+        const map = new google.maps.Map(document.getElementById('map-customer-ip'), {
+          zoom: 4,
+          center: uluru
         });
 
-        var marker = new google.maps.Marker({
-            position: uluru,
-            map: map
+        const marker = new google.maps.Marker({
+          position: uluru,
+          map: map
         });
     }
 </script>
