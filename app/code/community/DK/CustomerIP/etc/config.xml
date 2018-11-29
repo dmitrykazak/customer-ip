@@ -119,7 +119,7 @@
         <jobs>
             <ip_customer_update>
                 <run>
-                    <model>dk_customerip/process::updateCustomerIp</model>
+                    <model>dk_customerip/process::saveInfo</model>
                 </run>
             </ip_customer_update>
         </jobs>
