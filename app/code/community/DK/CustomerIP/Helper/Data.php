@@ -22,6 +22,22 @@ class DK_CustomerIP_Helper_Data extends Mage_Core_Helper_Abstract
     }
 
     /**
+     * @return bool
+     */
+    public function isCustomerIpEnabled()
+    {
+        return Mage::getStoreConfigFlag('dk_customerip/settings/customer_enabled');
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSubscriberIpEnabled()
+    {
+        return Mage::getStoreConfigFlag('dk_customerip/settings/subscriber_enabled');
+    }
+
+    /**
      * Get current service model for to get IP info.
      *
      * @return Mage_Core_Model_Abstract|null

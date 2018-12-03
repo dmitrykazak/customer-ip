@@ -4,22 +4,8 @@
  * Class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_GMap
  */
 class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_GMap
-    extends Mage_Adminhtml_Block_Template
+    extends DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_Abstract
 {
-    private $customer;
-
-    public function setCustomer($customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
-
-    public function getCustomer()
-    {
-        return $this->customer ?: Mage::registry('current_customer');
-    }
-
     /**
      * @return string
      */
@@ -28,6 +14,9 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_GMap
         return Mage::helper('dk_customerip')->getGoogleMapKey();
     }
 
+    /**
+     * @return array
+     */
     public function getCoordinates()
     {
         $coordinates = Mage::registry('customer_coordinates');

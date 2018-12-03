@@ -84,7 +84,7 @@
         <layout>
             <updates>
                 <dk_customerip>
-                    <file>dk_customerip.xml</file>
+                    <file>dk/customerip.xml</file>
                 </dk_customerip>
             </updates>
         </layout>
@@ -110,6 +110,10 @@
     </adminhtml>
     <default>
         <dk_customerip>
+            <settings>
+                <customer_enabled>1</customer_enabled>
+                <subscriber_enabled>1</subscriber_enabled>
+            </settings>
             <ipapi>
                 <timeout>60</timeout>
             </ipapi>

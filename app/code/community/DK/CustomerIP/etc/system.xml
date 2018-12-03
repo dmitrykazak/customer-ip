@@ -13,15 +13,35 @@
                 <settings translate="label">
                     <label>General</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>1</sort_order>
+                    <sort_order>30</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>1</show_in_website>
                     <show_in_store>1</show_in_store>
                     <fields>
+                        <customer_enabled translate="label comment">
+                            <label>Customer Enabled</label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </customer_enabled>
+                        <subscriber_enabled translate="label comment">
+                            <label>Subscriber Enabled</label>
+                            <comment><![CDATA[]]></comment>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </subscriber_enabled>
                         <google_api_key translate="label comment">
                             <label>Google API Key</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>10</sort_order>
+                            <sort_order>30</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>0</show_in_website>
                             <show_in_store>0</show_in_store>
@@ -30,7 +50,7 @@
                 </settings>
                 <ipapi translate="label">
                     <label>IpApi</label>
-                    <sort_order>10</sort_order>
+                    <sort_order>40</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
@@ -48,7 +68,7 @@
                 <import translate="label">
                     <label>Scheduled Import Settings</label>
                     <frontend_type>text</frontend_type>
-                    <sort_order>20</sort_order>
+                    <sort_order>50</sort_order>
                     <show_in_default>1</show_in_default>
                     <show_in_website>0</show_in_website>
                     <show_in_store>0</show_in_store>
@@ -91,46 +111,6 @@
                         </time>
                     </fields>
                 </import>
-                <customer translate="label">
-                    <label>Customer Options</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>30</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <enabled translate="label comment">
-                            <label>Enabled</label>
-                            <comment><![CDATA[]]></comment>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>0</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </enabled>
-                    </fields>
-                </customer>
-                <subscriber translate="label">
-                    <label>Subscriber Options</label>
-                    <frontend_type>text</frontend_type>
-                    <sort_order>40</sort_order>
-                    <show_in_default>1</show_in_default>
-                    <show_in_website>1</show_in_website>
-                    <show_in_store>1</show_in_store>
-                    <fields>
-                        <enabled translate="label comment">
-                            <label>Enabled</label>
-                            <comment><![CDATA[]]></comment>
-                            <frontend_type>select</frontend_type>
-                            <sort_order>0</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                            <source_model>adminhtml/system_config_source_yesno</source_model>
-                        </enabled>
-                    </fields>
-                </subscriber>
             </groups>
         </dk_customerip>
     </sections>

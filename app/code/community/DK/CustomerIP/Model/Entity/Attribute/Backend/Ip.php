@@ -13,6 +13,9 @@ class DK_CustomerIP_Model_Entity_Attribute_Backend_Ip
         $this->helper = Mage::helper('dk_customerip');
     }
 
+    /**
+     * @inheritdoc
+     */
     public function beforeSave($object)
     {
         $attrCode = $this->getAttribute()->getAttributeCode();

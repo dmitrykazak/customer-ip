@@ -8,7 +8,9 @@ $installer->startSetup();
 $connection = $installer->getConnection();
 $tableNameIP = $installer->getTable('dk_customerip/customer_info_ip');
 
-$connection->addColumn($tableNameIP, 'normalized_info', 'TEXT NULL DEFAULT NULL');
+if (!$connection->tableColumnExists($tableNameIP, 'normalized_info')) {
+    $connection->addColumn($tableNameIP, 'normalized_info', 'TEXT NULL DEFAULT NULL');
+}
 
 $installer->endSetup();
 

@@ -4,35 +4,16 @@
  * Class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
  */
 class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
-    extends Mage_Adminhtml_Block_Template
+    extends DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_Abstract
 {
     const LIMIT_SHOW_ATTRIBUTE = 5;
-
-    private $collection = null;
-
-    private $customer;
-
-    /**
-     * @return Mage_Customer_Model_Customer
-     */
-    public function getCustomer()
-    {
-        return $this->customer ?: Mage::registry('current_customer');
-    }
-
-    public function setCustomer($customer)
-    {
-        $this->customer = $customer;
-
-        return $this;
-    }
 
     /**
      * @return int
      */
     public function limitShowAttribute()
     {
-        return self::LIMIT_SHOW_ATTRIBUTE;
+        return static::LIMIT_SHOW_ATTRIBUTE;
     }
 
     /**
@@ -41,23 +22,6 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
     public function getRegistrationIp()
     {
         return $this->getCustomer()->getRegistrationIp();
-    }
-
-    public function getCollection()
-    {
-        if ($this->collection) {
-            return $this->collection;
-        }
-
-        /** @var DK_CustomerIP_Model_Info $info */
-        $this->collection = Mage::getModel('dk_customerip/info')
-            ->getCollection()
-            ->addFieldToFilter('customer_id', $this->getCustomer()->getId())
-            ->setPageSize(1)
-            ->setCurPage(1)
-            ->getFirstItem();
-
-        return $this->collection;
     }
 
     /**
@@ -86,24 +50,11 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
     }
 
     /**
-     * @return DK_CustomerIP_Model_Info
-     */
-    public function getInfoData()
-    {
-        $info = $this->getCollection();
-        if ($info && $info->getNormalizedInfo()) {
-            return Zend_Json_Decoder::decode($info->getNormalizedInfo());
-        }
-
-        return [];
-    }
-
-    /**
      * @return string
      */
     public function getAjaxUrl()
     {
-        return $this->helper('adminhtml')->getUrl('adminhtml/customerip/get');
+        return $this->helper('adminhtml')->getUrl('adminhtml/customerip/update');
     }
 
     /**

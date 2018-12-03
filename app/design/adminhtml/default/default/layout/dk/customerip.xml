@@ -3,19 +3,19 @@
     <adminhtml_customer_edit>
         <reference name="head">
             <action method="addJs">
-                <script>dk_customerip/main.js</script>
+                <script>dk/customerip/main.js</script>
             </action>
         </reference>
         <reference name="customer_edit_tab_view">
             <block type="dk_customerip/adminhtml_customer_edit_tab_view_infoip"
-                   name="customerip" template="dk_customerip/customer/tab/view/infoip.phtml"
+                   name="customerip" template="dk/customerip/customer/tab/view/infoip.phtml"
                    before="sales">
                 <block type="dk_customerip/adminhtml_customer_edit_tab_view_infoTable"
                        name="customerip-info-table"
-                       template="dk_customerip/customer/tab/view/info_table.phtml">
+                       template="dk/customerip/customer/tab/view/info_table.phtml">
                 </block>
                 <block type="dk_customerip/adminhtml_customer_edit_tab_view_gMap"
-                       name="customer-gmap" template="dk_customerip/customer/tab/view/gmap.phtml"/>
+                       name="customer-gmap" template="dk/customerip/customer/tab/view/gmap.phtml"/>
             </block>
         </reference>
     </adminhtml_customer_edit>

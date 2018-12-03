@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Class DK_CustomerIP_Model_Info
+ *
+ * @method string getNormalizedInfo()
+ * @method string getInfo()
+ */
 class DK_CustomerIP_Model_Info extends Mage_Core_Model_Abstract
 {
     const DISABLED_STATUS = 0;

@@ -2,7 +2,7 @@
 
 class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Controller_Action
 {
-    public function getAction()
+    public function updateAction()
     {
         if ($this->getRequest()->isAjax()) {
             if ($customerId = $this->getRequest()->getParam('customer')) {
