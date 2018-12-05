@@ -8,6 +8,8 @@ class DK_CustomerIP_Helper_Normalizer extends Mage_Core_Helper_Abstract
     protected $skipValues = [
         true,
         false,
+        '',
+        ' ',
     ];
 
     /**

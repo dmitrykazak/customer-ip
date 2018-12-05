@@ -24,8 +24,7 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_GMap
             return $coordinates;
         }
 
-        $coordinates = $this
-            ->getLayout()
+        $coordinates = $this->getLayout()
             ->getBlockSingleton('dk_customerip/adminhtml_customer_edit_tab_view_infoip')
             ->setCustomer($this->getCustomer())
             ->getCoordinates();

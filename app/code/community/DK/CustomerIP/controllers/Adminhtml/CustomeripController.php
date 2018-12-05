@@ -5,7 +5,7 @@ class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Contro
     public function updateAction()
     {
         if ($this->getRequest()->isAjax()) {
-            if ($customerId = $this->getRequest()->getParam('customer')) {
+            if ($customerId = (int) $this->getRequest()->getParam('customer')) {
                 $customer = Mage::getModel('customer/customer')->load($customerId);
 
                 Mage::getModel('dk_customerip/process')->updateCustomerIp($customer);
@@ -33,6 +33,5 @@ class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Contro
                 return;
             }
         }
-
     }
 }

@@ -3,11 +3,6 @@
 abstract class DK_CustomerIP_Model_Ip_Service_Abstract extends Varien_Object
 {
     /**
-     * @var string $ip
-     */
-    private $ip;
-
-    /**
      * @var Varien_Http_Client $httpClient
      */
     protected $httpClient;
@@ -22,7 +17,7 @@ abstract class DK_CustomerIP_Model_Ip_Service_Abstract extends Varien_Object
      */
     protected $helper;
 
-    public function __construct()
+    public function _construct()
     {
         $this->httpClient = new Varien_Http_Client();
         $this->helper = Mage::helper('dk_customerip');

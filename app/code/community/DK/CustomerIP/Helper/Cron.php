@@ -1,22 +1,37 @@
 <?php
 
+/**
+ * Class DK_CustomerIP_Helper_Cron
+ */
 class DK_CustomerIP_Helper_Cron extends Mage_Core_Helper_Abstract
 {
+    /**
+     * @return bool
+     */
     public function getImportEnabled()
     {
-        return Mage::getStoreConfig('dk_customerip/import/enabled');
+        return Mage::getStoreConfigFlag('dk_customerip/import/enabled');
     }
 
+    /**
+     * @return string
+     */
     public function getImportTime()
     {
         return Mage::getStoreConfig('dk_customerip/import/time');
     }
 
+    /**
+     * @return string
+     */
     public function getImportFrequency()
     {
         return Mage::getStoreConfig('dk_customerip/import/frequency');
     }
 
+    /**
+     * @return array
+     */
     public function asArrayTime()
     {
         $regexp = '/(?<hour>\d{2}?),(?<minute>\d{2}),(?<second>\d{2})/';
