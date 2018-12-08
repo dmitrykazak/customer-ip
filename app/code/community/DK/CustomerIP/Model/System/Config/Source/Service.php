@@ -6,6 +6,9 @@ class DK_CustomerIP_Model_System_Config_Source_Service
 
     protected static $options = [];
 
+    /**
+     * @return array
+     */
     public function toOptionArray()
     {
         if (!self::$options) {

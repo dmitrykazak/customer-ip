@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * Class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_Abstract
+ */
 abstract class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_Abstract
     extends Mage_Adminhtml_Block_Template
 {
@@ -8,6 +11,9 @@ abstract class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_Abstract
      */
     private $customer;
 
+    /**
+     * @var null|DK_CustomerIP_Model_Info
+     */
     private $collection = null;
 
     /**
