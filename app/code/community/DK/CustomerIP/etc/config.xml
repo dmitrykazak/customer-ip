@@ -58,17 +58,6 @@
             </newsletter_subscriber_save_before>
         </events>
     </global>
-    <frontend>
-        <routers>
-            <dk_customersip>
-                <use>standard</use>
-                <args>
-                    <module>DK_CustomerIP</module>
-                    <frontName>customerip</frontName>
-                </args>
-            </dk_customersip>
-        </routers>
-    </frontend>
     <admin>
         <routers>
             <adminhtml>

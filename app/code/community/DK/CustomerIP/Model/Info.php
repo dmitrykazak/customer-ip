@@ -29,6 +29,9 @@ class DK_CustomerIP_Model_Info extends Mage_Core_Model_Abstract
     {
         return Mage::getModel('customer/customer')
             ->getCollection()
+            ->addAttributeToSelect([
+                'registration_ip',
+            ])
             ->addAttributeToFilter(
                 'status_update_ip', DK_CustomerIP_Model_Info::PROCESSING_STATUS
             );

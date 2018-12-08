@@ -15,6 +15,9 @@ class DK_CustomerIP_Model_Process
      */
     private $helperServer;
 
+    /**
+     * @var DK_CustomerIP_Helper_Data $server
+     */
     private $server;
 
     public function __construct()

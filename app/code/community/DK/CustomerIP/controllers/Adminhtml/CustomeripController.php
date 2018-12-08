@@ -19,7 +19,7 @@ class DK_CustomerIP_Adminhtml_CustomeripController extends Mage_Adminhtml_Contro
 
                 $response['table'] = $this->getLayout()
                     ->createBlock('dk_customerip/adminhtml_customer_edit_tab_view_infoTable')
-                    ->setTemplate('dk_customerip/customer/tab/view/info_table.phtml')
+                    ->setTemplate('dk/customerip/customer/tab/view/info_table.phtml')
                     ->setCustomer($customer)
                     ->toHtml();
 
