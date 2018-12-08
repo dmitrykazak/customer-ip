@@ -3,7 +3,11 @@
     "type": "magento-module",
     "homepage": "https://github.com/dmitrykazak/customer-ip",
     "description": "Magento module save and display a customer's IP used during registration.",
-    "license": "MIT License",
+    "license": "MIT",
+    "authors": [{
+        "name": "Dmitry Kazak",
+        "email": "dmitry.kazak0@gmail.com"
+    }],
     "require" : {
         "php": ">=5.4",
         "magento-hackathon/magento-composer-installer": "*"
