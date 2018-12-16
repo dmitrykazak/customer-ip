@@ -64,9 +64,14 @@ class DK_CustomerIP_Block_Adminhtml_Customer_Edit_Tab_View_Infoip
      */
     protected function _toHtml()
     {
+        if (!$this->helper('dk_customerip')->isCustomerIpEnabled()) {
+            return '';
+        }
+
         if (!$this->getCustomer() || !$this->getCustomer()->getId()) {
             return '';
         }
+
         return parent::_toHtml();
     }
 }

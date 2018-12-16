@@ -1,6 +1,10 @@
 <?php
 
-class DK_CustomerIP_Model_System_Config_Source_Backend_Cron extends Mage_Core_Model_Config_Data
+/**
+ * Class DK_CustomerIP_Model_System_Config_Source_Backend_Cron
+ */
+class DK_CustomerIP_Model_System_Config_Source_Backend_Cron
+    extends Mage_Core_Model_Config_Data
 {
     const CRON_PATH = 'crontab/jobs/ip_customer_update/schedule/cron_expr';
 
@@ -16,8 +20,11 @@ class DK_CustomerIP_Model_System_Config_Source_Backend_Cron extends Mage_Core_Mo
                 ->setPath(self::CRON_PATH)
                 ->save();
 
-        } catch (Exception $e) {
-            throw new Exception(Mage::helper('cron')->__('Unable to save the cron expression.'));
+        } catch (Mage_Core_Exception $e) {
+            throw Mage::exception(
+                'DK_CustomerIP',
+                Mage::helper('cron')->__('Unable to save the cron expression.')
+            );
         }
     }
 }
