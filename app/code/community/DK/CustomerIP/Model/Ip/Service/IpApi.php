@@ -6,10 +6,12 @@
 class DK_CustomerIP_Model_Ip_Service_IpApi
     extends DK_CustomerIP_Model_Ip_Service_Abstract
 {
+    const XML_API_KEY_PATH = 'dk_customerip/ipapi/apikey';
+
     /**
      * @var string $url
      */
-    protected $url = 'https://ipapi.co/{{IP_ADDRESS}}/json/';
+    private $url = 'https://ipapi.co/{{IP_ADDRESS}}/json/';
 
     /**
      * @return array|mixed
@@ -19,11 +21,15 @@ class DK_CustomerIP_Model_Ip_Service_IpApi
         $url = str_replace('{{IP_ADDRESS}}', $this->getIp(), $this->url);
 
         try {
-            $response = $this->httpClient
+            $client = $this->getHttpClient()
                 ->setUri($url)
-                ->setConfig(['timeout' => Mage::getStoreConfig('dk_customerip/ipapi/timeout')])
-                ->request('GET')
-                ->getBody();
+                ->setConfig(['timeout' => Mage::getStoreConfig('dk_customerip/ipapi/timeout')]);
+
+            if ($apiKey = $this->getApiKey()) {
+                $client->setParameterGet('key', $apiKey);
+            }
+
+            $response = $client->request('GET')->getBody();
 
             if ($response) {
                 return $response;
@@ -31,7 +37,7 @@ class DK_CustomerIP_Model_Ip_Service_IpApi
 
             return [];
         } catch (Exception $e) {
-            array_push($this->error, $this->helper->__('Cannot get IP address %s.', $url));
+            array_push($this->error, $this->getHelper()->__('Cannot get IP address %s.', $url));
         }
     }
 }
