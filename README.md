@@ -11,7 +11,7 @@ modman clone https://github.com/dmitrykazak/customer-ip.git
 ```
 composer require dmitrykazak/customer-ip
 ```
-** Manual Installation **
+**Manual Installation**
 ```
 1) Copy all the files folders to the root folder of your Magento installation
 2) Clear the cache.
