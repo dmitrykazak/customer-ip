@@ -3,7 +3,7 @@ Magento module save and display a customer's IP used during registration. Custom
 
 # Installation
 **Using modman**
-```php
+```bash
 $cd /path/to/magento
 modman clone https://github.com/dmitrykazak/customer-ip.git
 ```
@@ -26,7 +26,7 @@ If you want using google map in the Manage Customer. Insert your public key to f
 
 # How use custom data provider for IP
 Add the following code to your module's `config.xml` file
-```
+```xml
 <ip>
     <services>
         <custom_name>
